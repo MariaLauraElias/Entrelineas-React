@@ -30,19 +30,19 @@ function Chart (){
                         <thead>
                             <tr>
                                 <th>Título</th>
-                                <th>Duración</th>
-                                <th>Rating</th>
-                                <th>Género</th>
-                                <th>Premios</th>
+                                <th>Autor</th>
+                                <th>Precio</th>
+                                <th>Género Literario</th>
+                                <th>Categorias</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Título</th>
-                                <th>Duración</th>
-                                <th>Rating</th>
-                                <th>Género</th>
-                                <th>Premios</th>
+                                <th>Autor</th>
+                                <th>Precio</th>
+                                <th>Género Literario</th>
+                                <th>Categorias</th>
                             </tr>
                         </tfoot>
                         <tbody>
