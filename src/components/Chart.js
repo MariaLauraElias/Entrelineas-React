@@ -1,28 +1,39 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import ChartRow from './ChartRow';
 
-let tableRowsData = [
-    {
-        Title: 'Billy Elliot ',
-        Length: '123',
-        Rating: '5',
-        Categories: ['Drama','Comedia'],
-        Awards: 2
-    },
-    {
-        Title: 'Alicia en el país de las maravillas',
-        Length: '142',
-        Rating: '4.8',
-        Categories: ['Drama','Acción','Comedia'],
-        Awards: 3
-    },
+// let tableRowsData = [
+//     {
+//         Title: 'Billy Elliot ',
+//         Length: '123',
+//         Rating: '5',
+//         Categories: ['Drama','Comedia'],
+//         Awards: 2
+//     },
+//     {
+//         Title: 'Alicia en el país de las maravillas',
+//         Length: '142',
+//         Rating: '4.8',
+//         Categories: ['Drama','Acción','Comedia'],
+//         Awards: 3
+//     },
     
-]
+// ]
 
 
 function Chart (){
-    return (
-        /* <!-- DataTales Example --> */
+    const [books, setBooks] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:3001/api/products')
+          .then(res => res.json())
+            .then((data)=>{
+               console.log(data.data);
+               setBooks(data.data);
+             
+            })
+      },[])
+
+      return (
+        
         <div className="card shadow mb-4">
             <div className="card-body">
                 <div className="table-responsive">
@@ -46,9 +57,10 @@ function Chart (){
                             </tr>
                         </tfoot>
                         <tbody>
+                            
                             {
-                            tableRowsData.map( ( row , i) => {
-                                return <ChartRow { ...row} key={i}/>
+                           books.length > 0 && books.map( ( book , i) => {
+                                return <ChartRow {...book} key={i}/>
                             })
                             }
 
@@ -57,8 +69,8 @@ function Chart (){
                 </div>
             </div>
         </div>
-
-    )
+       )
+       
 }
 
 export default Chart;

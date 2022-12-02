@@ -2,22 +2,32 @@ import React from 'react';
 
 
 function ChartRow(props){
-    return (
+    console.log (props);
+     
+            return (
+
                 <tr>
-                    <td>{props.Title}</td>
-                    <td>{props.Length}</td>
-                    <td>{props.Rating}</td>
+                    <td>{props.title}</td>
+                    <td>{props.author}</td>
+                    <td>{props.price}</td>
                     <td>
                         <ul>
-                            {props.Categories.map( (category,i) => 
-                                <li key={`category ${i}`}>{category}</li>
+                            {props.categories.length > 0 && props.categories.map( (category,i) => 
+                                <li key={`category ${i}`}>{category.name}</li>
                             )}
                         </ul>
                     </td>
-                    <td>{props.Awards}</td>
+                    <td>
+                        <ul>
+                            { props.topics.length >0 && props.topics.map( (topic,i) => 
+                                <li key={`topic ${i}`}>{topic.name}</li>
+                            )}
+                        </ul>
+                    </td>
                 </tr>
-            )
-    }
+       ) }
+            
+    
     
         
 
