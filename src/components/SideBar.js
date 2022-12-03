@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../assets/images/02-Logo-small.jpeg';
 import ContentWrapper from './ContentWrapper';
 import TopicsInDb from './TopicsInDb';
-import LastMovieInDb from './LastMovieInDb';
+import LastBookInDb from './LastBookInDb';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 import SearchMovies from './SearchMovies';
@@ -81,7 +81,7 @@ function SideBar(){
                     <TopicsInDb />
                 </Route>
                 <Route path="/LastMovieInDb">
-                    <LastMovieInDb />
+                    <LastBookInDb />
                 </Route>
                 <Route path="/Chart">
                     <Chart />
