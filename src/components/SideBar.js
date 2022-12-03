@@ -1,7 +1,7 @@
 import React from 'react';
 import image from '../assets/images/02-Logo-small.jpeg';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
+import TopicsInDb from './TopicsInDb';
 import LastMovieInDb from './LastMovieInDb';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
@@ -78,7 +78,7 @@ function SideBar(){
                     <SearchMovies />
                 </Route>
                 <Route path="/GenresInDb">
-                    <GenresInDb />
+                    <TopicsInDb />
                 </Route>
                 <Route path="/LastMovieInDb">
                     <LastMovieInDb />
