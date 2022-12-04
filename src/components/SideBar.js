@@ -5,7 +5,7 @@ import TopicsInDb from './TopicsInDb';
 import LastBookInDb from './LastBookInDb';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
-import SearchMovies from './SearchMovies';
+//import SearchMovies from './SearchMovies';
 import Chart from './Chart';
 
 function SideBar(){
@@ -37,12 +37,12 @@ function SideBar(){
                 
                 <div className="sidebar-heading">Acciones</div>
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                 <Link className="nav-link" to="/SearchMovies">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Buscar Producto</span>
                     </Link>
-                </li>
+                </li> */}
 
                
                 <li className="nav-item">
@@ -74,9 +74,9 @@ function SideBar(){
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/SearchMovies">
+                {/* <Route path="/SearchMovies">
                     <SearchMovies />
-                </Route>
+                </Route> */}
                 <Route path="/GenresInDb">
                     <TopicsInDb />
                 </Route>
