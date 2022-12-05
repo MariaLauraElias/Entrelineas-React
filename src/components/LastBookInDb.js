@@ -7,7 +7,7 @@ function LastBookInDb(){
         fetch('http://localhost:3001/api/products/last')
           .then(res => res.json())
             .then((data)=>{
-               console.log(data.data);
+               
                setBook(data.data);
              
             })

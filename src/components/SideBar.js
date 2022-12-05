@@ -5,8 +5,8 @@ import TopicsInDb from './TopicsInDb';
 import LastBookInDb from './LastBookInDb';
 import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
-//import SearchMovies from './SearchMovies';
 import Chart from './Chart';
+import ContentRowBooks from './ContentRowBooks';
 
 function SideBar(){
     return(
@@ -37,16 +37,16 @@ function SideBar(){
                 
                 <div className="sidebar-heading">Acciones</div>
 
-                {/* <li className="nav-item">
-                <Link className="nav-link" to="/SearchMovies">
+                <li className="nav-item">
+                <Link className="nav-link" to="/ContentRowBooks">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Buscar Producto</span>
+                        <span>Columnas de datos</span>
                     </Link>
-                </li> */}
+                </li>
 
                
                 <li className="nav-item">
-                <Link className="nav-link" to="/GenresInDb">
+                <Link className="nav-link" to="/TopicsInDb">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Generos Literarios</span>
                     </Link>
@@ -54,7 +54,7 @@ function SideBar(){
 
                 
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/LastBookInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Último producto </span></Link>
                 </li>
@@ -74,13 +74,13 @@ function SideBar(){
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                {/* <Route path="/SearchMovies">
-                    <SearchMovies />
-                </Route> */}
-                <Route path="/GenresInDb">
+                <Route path="/ContentRowBooks">
+                    <ContentRowBooks />
+                </Route>
+                <Route path="/TopicsInDb">
                     <TopicsInDb />
                 </Route>
-                <Route path="/LastMovieInDb">
+                <Route path="/LastBookInDb">
                     <LastBookInDb />
                 </Route>
                 <Route path="/Chart">

@@ -7,7 +7,7 @@ function Chart (){
         fetch('http://localhost:3001/api/products')
           .then(res => res.json())
             .then((data)=>{
-               console.log(data.data);
+               
                setBooks(data.data);
              
             })
