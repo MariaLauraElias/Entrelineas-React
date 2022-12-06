@@ -7,6 +7,7 @@ import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
 import Chart from './Chart';
 import ContentRowBooks from './ContentRowBooks';
+import LastUserInDb from './LastUserInDb';
 
 function SideBar(){
     return(
@@ -66,6 +67,13 @@ function SideBar(){
                         <span>Tabla de productos</span></Link>
                 </li>
 
+
+                <li className="nav-item nav-link">
+                <Link className="nav-link" to="/LastUserInDb">
+                        <i className="fas fa-fw fa-table"></i>
+                        <span>Ultimo usuario</span></Link>
+                </li>
+
                 
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
@@ -85,6 +93,9 @@ function SideBar(){
                 </Route>
                 <Route path="/Chart">
                     <Chart />
+                </Route>
+                <Route path="/LastUserInDb">
+                    <LastUserInDb />
                 </Route>
                 <Route component={NotFound} />
             </Switch>
