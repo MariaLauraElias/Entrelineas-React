@@ -24,18 +24,18 @@ let [totalUsers, setTotalUsers] = useState({
     fetch('http://localhost:3001/api/counter')
     .then(res => res.json())
     .then((data)=>{
-       setTotalProducts({title: 'Books in Data Base',
-       color: 'primary', 
-       cuantity: data.totalProducts,
-       icon: 'fa-clipboard-list'})
-       setTotalTopics({title: 'Topis in Data Base',
-       color: 'success', 
+       setTotalProducts({
+        ...totalProducts, 
+        cuantity: data.totalProducts
+       })
+       setTotalTopics({
+        ...totalTopics, 
        cuantity: data.totalTopics,
-       icon: 'fa-award' })
-       setTotalUsers({title: 'Users in Data Base',
-       color: 'warning', 
+       })
+       setTotalUsers({
+        ...totalUsers, 
        cuantity: data.totalUsers,
-       icon: 'fa-user-check'})    
+       })    
          
    })
   },[])
