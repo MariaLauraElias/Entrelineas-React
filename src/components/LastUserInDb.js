@@ -63,7 +63,7 @@ function LastUserInDb() {
           {
             <div className="col-lg-6 mb-4">
             <div className="card bg-dark text-white shadow">
-             <div className="card-body" key={`UserCountry ${User.id}`}>Email: {User.Email}</div>
+             <div className="card-body" key={`UserEmail ${User.id}`}>Email: {User.email}</div>
             </div>
             </div>
           }
@@ -72,7 +72,7 @@ function LastUserInDb() {
             <div className="col-lg-6 mb-4">
             <div className="card bg-dark text-white shadow">
                 
-             <div className="card-body" key={`UserEmail ${User.id}`}>País: {User.country}</div>
+             <div className="card-body" key={`UserCountry ${User.id}`}>País: {User.country}</div>
             </div>
             </div>
           }
