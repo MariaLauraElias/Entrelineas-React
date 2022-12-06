@@ -1,62 +1,56 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import SmallCard from './SmallCard';
 
-/*  Cada set de datos es un objeto literal */
-
-/* <!-- Movies in DB --> */
-let booksInDB = fetch('http://localhost:3001/api/products')
-.then(res => res.json())
-  .then((data)=>{
-    return {
-        title: 'Books in Data Base',
-        color: 'primary', 
-        cuantity: data.total,
-        icon: 'fa-clipboard-list'
-    }
-  });
-  
-let topicsInDb = fetch('http://localhost:3001/api/topics')
-.then(res => res.json())
-  .then((data)=>{
-    return {
-        title: 'Topis in Data Base',
-        color: 'success', 
-        cuantity: data.total,
-        icon: 'fa-award'
-    }
-  });
-  let usersInDb = fetch('http://localhost:3001/api/users')
-.then(res => res.json())
-  .then((data)=>{
-    return {
-        title: 'Users in Data Base',
-        color: 'warning', 
-        cuantity: data.total,
-        icon: 'fa-user-check'
-    }
-  })
-
-let cartProps =[];
-Promise.all([booksInDB, topicsInDb, usersInDb])
-.then(values=> {
-    cartProps = values;
+function ContentRowBooks (){
+let [totalProducts, setTotalProducts] = useState({
+          title: 'Books in Data Base',
+          color: 'primary', 
+          cuantity: null,
+          icon: 'fa-clipboard-list'
+      });
+let [totalTopics, setTotalTopics] = useState({
+          title: 'Topis in Data Base',
+          color: 'success', 
+          cuantity: null,
+          icon: 'fa-award'      
 })
-
-
-function ContentRowBooks(){
-    return (
+let [totalUsers, setTotalUsers] = useState({
+          title: 'Users in Data Base',
+          color: 'warning', 
+          cuantity: null,
+          icon: 'fa-user-check'
+})
+  useEffect(()=> {
+    fetch('http://localhost:3001/api/counter')
+    .then(res => res.json())
+    .then((data)=>{
+       setTotalProducts({title: 'Books in Data Base',
+       color: 'primary', 
+       cuantity: data.totalProducts,
+       icon: 'fa-clipboard-list'})
+       setTotalTopics({title: 'Topis in Data Base',
+       color: 'success', 
+       cuantity: data.totalTopics,
+       icon: 'fa-award' })
+       setTotalUsers({title: 'Users in Data Base',
+       color: 'warning', 
+       cuantity: data.totalUsers,
+       icon: 'fa-user-check'})    
+         
+   })
+  },[])
+  let cartProps = [totalProducts,totalUsers, totalTopics]
+  return (
     
-        <div className="row">
-            
-            {cartProps.map( (datos, i) => {
-
-                return <SmallCard {...datos} key={i}/>
-            
-            })}
-
-        </div>
-    )
+            <div className="row">
+                
+                {cartProps.map( (datos, i) => {
+    
+                    return <SmallCard {...datos} key={'counter'+ i}/>
+                
+                })}
+    
+            </div>
+        )
 }
-
-
-export default ContentRowBooks;
+  export default ContentRowBooks;
